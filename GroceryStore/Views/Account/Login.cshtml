@@ -1,0 +1,59 @@
+﻿@model GroceryStore.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+<div class="content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <!-- Registration Tab Content -->
+                <div class="account-content shadow p-4 rounded bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-center">
+                            <img src="~/images/category.jpg" alt="Logo" class="img-fluid mb-4">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="login-header mb-4">
+                                <h3 class="text-primary">Login</h3>
+                            </div>
+                            <form method="post" class="pt-4" asp-action="login" asp-controller="Account">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="form-label" style="font-family: 'Verdana', sans-serif;">UserName</label>
+                                    <input asp-for="Email" type="text" class="form-control" placeholder="UserName ">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="form-label" style="font-family: 'Verdana', sans-serif;">Password</label>
+                                    <input type="password" asp-for="Password" class="form-control"
+                                           placeholder="Enter your password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                              
+
+
+
+                                <button class="btn btn-primary btn-block btn-lg mt-4" type="submit" style="font-family: 'Verdana', sans-serif;"><a asp-action="Index"></a>Login</button>
+
+                                <div class="text-center dont-have mt-3" style="font-family: 'Verdana', sans-serif;">
+                                    Don’t have an account?
+                                    <a asp-action="Register" asp-controller="Account">Register</a>
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                </div>
+                            </form>
+                      
+                        </div>
+                    </div>
+                </div>
+                <!-- /Registration Tab Content -->
+
+            </div>
+        </div>
+    </div>
+</div>
+

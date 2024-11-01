@@ -1,0 +1,51 @@
+﻿@model GroceryStore.Models.Contact
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="container">
+    <div class="page-inner">
+<h1>Edit</h1>
+
+<h4>Contact</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ContactId" />
+            <div class="form-group">
+                <label asp-for="StoreAddress" class="control-label"></label>
+                <input asp-for="StoreAddress" class="form-control" />
+                <span asp-validation-for="StoreAddress" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+ 
+            <div class="form-group">
+                <label asp-for="ContactSubject" class="control-label"></label>
+                <input asp-for="ContactSubject" class="form-control" />
+                <span asp-validation-for="ContactSubject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactMessage" class="control-label"></label>
+                <input asp-for="ContactMessage" class="form-control" />
+                <span asp-validation-for="ContactMessage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+    </div>
+</div>

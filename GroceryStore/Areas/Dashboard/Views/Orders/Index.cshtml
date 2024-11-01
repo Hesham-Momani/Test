@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GroceryStore.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="page-inner">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Categorys</div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrderStatus)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserId)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreationDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdateDate)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderStatus)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserId)
+                                    </td>
+                             
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreationDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UpdateDate)
+                                    </td>
+                                    <td>
+                                       
+                                        <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                                        <a asp-action="Index" asp-controller="Carts" asp-route-id="@item.OrderId">Items</a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

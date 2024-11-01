@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GroceryStore.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <div class="page-inner">
+        <p>
+            <a asp-action="Create" class="btn btn-primary btn-round">Add Category</a>
+
+        </p>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Categorys</div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryName)
+                                </th>
+                                <th>Image</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CategoryName)
+                                    </td>
+                                    <td><img src="~/systemimages/@item.CategoryImage" width="80" height="80" /></td>
+                                    <td>
+                                        <a asp-action="Index" asp-controller="Products" asp-route-id="@item.CategoryId" asp-area="Dashboard" class="btn btn-primary btn-round">Product </a>|
+                                        <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger btn-round">Delete</a>|
+                                        <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-warning btn-round">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-primary btn-round">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

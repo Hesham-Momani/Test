@@ -1,0 +1,77 @@
+﻿@model IEnumerable<GroceryStore.Models.Featur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="page-inner">
+        <p>
+            <a asp-action="Create" class="btn btn-primary btn-round">Create New</a>
+        </p>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Featurs</div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FeaturName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FeaturDescription)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsDeleted)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsActive)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreationDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdateDate)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FeaturName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FeaturDescription)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsActive)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreationDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UpdateDate)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.FeaturId" class="btn btn-warning btn-round">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.FeaturId" class="btn btn-primary btn-round">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.FeaturId" class="btn btn-danger btn-round">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

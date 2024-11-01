@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GroceryStore.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+  
+    <div class="page-inner">
+        <p>
+            <a asp-action="Create" asp-route-id=@ViewData["CategoryId"] class="btn btn-primary btn-round">Create New</a>
+        </p>
+        <div class="card">
+          
+            <div class="card-header">
+                <div class="card-title">Products</div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProductName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProductDescription)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProductPrice)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProductImg)
+                                </th>
+                         
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductDescription)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                                    </td>
+                                    <td><img src="~/systemimages/@item.ProductImg" width="80" height="80" /></td>
+
+                                  
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-warning btn-round">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-primary btn-round">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-round">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

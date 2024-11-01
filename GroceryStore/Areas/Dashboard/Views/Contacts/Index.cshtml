@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GroceryStore.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <div class="page-inner">
+ 
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Contacts</div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StoreAddress)
+                            </th>
+                    
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </th>
+                         
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactSubject)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactMessage)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StoreAddress)
+                                </td>
+                         
+                              
+                             
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                        
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ContactSubject)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ContactMessage)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.ContactId">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.ContactId">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.ContactId">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

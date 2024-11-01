@@ -1,0 +1,67 @@
+﻿@model GroceryStore.Models.ViewModels.RegisterViewModel
+
+ @{
+    ViewData["Title"] = "Register";
+}
+
+<div class="content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <!-- Registration Tab Content -->
+                <div class="account-content shadow p-4 rounded bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-center">
+                            <img src="~/images/category.jpg" alt="Logo" class="img-fluid mb-4">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="login-header mb-4">
+                                <h3 class="text-primary">Register</h3>
+                            </div>
+                            <form method="post" asp-action="Register" asp-controller="Account">
+                                <div class="form-group form-focus mb-3">
+                                    <label class="focus-label" asp-for="Email">Email</label>
+                                    <input type="email" class="form-control"
+                                           asp-for="Email"
+                                           placeholder="Enter your email" required>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group form-focus mb-3">
+                                    <label class="focus-label" asp-for="UserName">UserName</label>
+                                    <input type="text" class="form-control"
+                                           asp-for="UserName"
+                                           placeholder="Enter your UserName" required>
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-focus mb-3">
+                                    <label class="focus-label"
+                                           asp-for="Mobile">mobile</label>
+                                    <input type="text" asp-for="Mobile" class="form-control"
+                                           placeholder="Enter your mobile Number" asp-for="mobile" required>
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group form-focus mb-4">
+                                    <label class="focus-label" asp-for="Password">Password</label>
+                                    <input type="password" class="form-control"
+                                           placeholder="Enter your password" asp-for="Password" required>
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                                <button class="btn btn-primary btn-block btn-lg" type="submit">Register</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <span>Already have an account? </span><a asp-action="Login" asp-controller="Account" class="text-primary">Login</a>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Registration Tab Content -->
+
+            </div>
+        </div>
+    </div>
+</div>
